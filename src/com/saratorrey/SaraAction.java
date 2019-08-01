@@ -15,6 +15,8 @@ public class SaraAction extends AnAction {
 
     @Override public void actionPerformed( @NotNull AnActionEvent e ) {
 
+        // some of the following text selection code was borrowed from the tutorial: https://www.baeldung.com/intellij-new-custom-plugin
+
         PsiFile file = e.getData( CommonDataKeys.PSI_FILE);
         Language lang = e.getData( CommonDataKeys.PSI_FILE).getLanguage();
         String languageTag = "+[" + lang.getDisplayName().toLowerCase() + "]";
