@@ -11,12 +11,12 @@ import com.intellij.psi.PsiFile;
 
 import org.jetbrains.annotations.NotNull;
 
-public class SaraAction extends AnAction {
+public class SearchTwitterAction extends AnAction {
 
     @Override public void actionPerformed( @NotNull AnActionEvent e ) {
 
-        // some of the following text selection code was borrowed from the tutorial: https://www.baeldung.com/intellij-new-custom-plugin
-
+        // Some of the following text selection code was borrowed from the tutorial: https://www.baeldung.com/intellij-new-custom-plugin
+        // All of this code gets the selected text.
         PsiFile file = e.getData( CommonDataKeys.PSI_FILE);
         Language lang = e.getData( CommonDataKeys.PSI_FILE).getLanguage();
         String languageTag = "+[" + lang.getDisplayName().toLowerCase() + "]";
@@ -27,6 +27,6 @@ public class SaraAction extends AnAction {
 
         String searchTerm = selectedText.replace(' ', '+') + languageTag;
 
-        BrowserUtil.browse( "https://twitter.com/search?q=" + searchTerm + "&src=typed_queryk");
+        BrowserUtil.browse( "https://twitter.com/search?q=" + searchTerm + "&src=typed_query");
     }
 }
